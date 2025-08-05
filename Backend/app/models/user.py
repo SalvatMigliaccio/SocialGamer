@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import relationship
+from typing import Optional
 from ..database import Base
 
 class User(Base):
@@ -15,4 +17,5 @@ class User(Base):
     avatar_url = Column(String, nullable=True)
     bio = Column(String, nullable=True)
     
-    
+    reviews = relationship("Review", back_populates="user")
+
