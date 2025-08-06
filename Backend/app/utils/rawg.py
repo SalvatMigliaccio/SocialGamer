@@ -3,6 +3,8 @@
 import os
 import requests
 from typing import Optional
+from dotenv import load_dotenv
+load_dotenv()  # <- questo carica .env
 
 
 RAWG_API_KEY = os.getenv("RAWG_API_KEY")

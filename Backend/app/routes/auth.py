@@ -23,7 +23,7 @@ def login_user(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = D
     access_token = auth.create_access_token(data={"sub": user.username})
     return Token(access_token=access_token, token_type="bearer")
 
-router.get("/me", response_model=UserOut)
+@router.get("/me", response_model=UserOut)
 def read_users_me(current_user: User = Depends(auth.get_current_user)):
     return current_user
 
